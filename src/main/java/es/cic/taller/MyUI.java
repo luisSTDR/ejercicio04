@@ -58,10 +58,6 @@ public class MyUI extends UI {
         button.addClickListener(event -> Notification.show("Hola " + String.valueOf(name.getValue())
         	+ " " + String.valueOf(apellidos.getValue()) + ", de " + String.valueOf(edad.getValue()) 
         	+ " de edad, con domicilio en " + String.valueOf(direc.getValue()),Type.TRAY_NOTIFICATION));
-     
-        
-        
-
         
         layout.addComponents(name, apellidos, edad, direc, button);
         
