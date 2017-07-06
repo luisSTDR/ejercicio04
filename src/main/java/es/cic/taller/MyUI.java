@@ -31,33 +31,39 @@ public class MyUI extends UI {
         final VerticalLayout layout = new VerticalLayout();
         
         final TextField name = new TextField();
-        name.setCaption("Type your name here:");
+        name.setCaption("Nombre:");
+        name.setPlaceholder("Escribe tu nombre...");
+        name.setMaxLength(30);
         
-        name.addValueChangeListener(event -> Notification.show("Value changed:",
-                String.valueOf(event.getValue()),
-                Type.TRAY_NOTIFICATION));
+        final TextField apellidos = new TextField();
+        apellidos.setCaption("Apellidos:");
+        apellidos.setPlaceholder("Escribe tus apellidos...");
+        apellidos.setMaxLength(30);
+        
+        final TextField edad = new TextField();
+        edad.setCaption("Edad:");
+        edad.setPlaceholder("Escribe tu edad...");
+        edad.setMaxLength(3);
+        
+        final TextField direc = new TextField();
+        direc.setCaption("Dirección:");
+        direc.setPlaceholder("Escribe tu dirección...");
+        direc.setMaxLength(50);
+        
+        /*name.addValueChangeListener(event -> Notification.show("Value changed:",
+                String.valueOf(name.getValue()),
+                Type.TRAY_NOTIFICATION));*/
 
-        Button button = new Button("Click Me");
-        button.addClickListener( e -> {
-        	name.setValue("Miguel");
-        	
-            /*layout.addComponent(new Label("Thanks " + name.getValue() 
-                    + ", it works!"));*/
-        });
+        Button button = new Button("Datos");
+        button.addClickListener(event -> Notification.show("Hola " + String.valueOf(name.getValue())
+        	+ " " + String.valueOf(apellidos.getValue()) + ", de " + String.valueOf(edad.getValue()) 
+        	+ " de edad, con domicilio en " + String.valueOf(direc.getValue()),Type.TRAY_NOTIFICATION));
+     
         
-        Button mi_boton =new Button("Este botón no hace nada");
         
-        mi_boton.addClickListener(			
-			event -> {
-			name.setValue("Adrián");
-			}
-			/*
-				layout.addComponent(new Label("Thanks " + name.getValue() 
-                + ", it works!"))			
-            */	
-		);
+
         
-        layout.addComponents(name, button, mi_boton);
+        layout.addComponents(name, apellidos, edad, direc, button);
         
         setContent(layout);
     }
